@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d15e7a4c16ed4293b8a431317b7b453c" Name="Diagram1">
+        <EntityTypeShape EntityType="AgenciaSegurosFalabellaModel.CLIENTE" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaSegurosFalabellaModel.COMPANIA" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaSegurosFalabellaModel.PEDIDOS" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaSegurosFalabellaModel.PRODUCTOS" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaSegurosFalabellaModel.VENDEDOR" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="AgenciaSegurosFalabellaModel.FK__CLIENTE__VEND_CO__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaSegurosFalabellaModel.FK__PEDIDOS__CLIE_CO__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaSegurosFalabellaModel.FK__PRODUCTOS__COM_C__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaSegurosFalabellaModel.FK__PEDIDOS__PRO_CON__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaSegurosFalabellaModel.FK__PEDIDOS__VEND_CO__1A14E395" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

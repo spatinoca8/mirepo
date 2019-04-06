@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AgenciaSegurosFalabellaModelStoreContainer" CdmEntityContainer="AgenciaSegurosFalabellaEntities">
+    <EntitySetMapping Name="CLIENTE">
+      <EntityTypeMapping TypeName="AgenciaSegurosFalabellaModel.CLIENTE">
+        <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="CLIE_CONT" ColumnName="CLIE_CONT" />
+          <ScalarProperty Name="VEND_CONT" ColumnName="VEND_CONT" />
+          <ScalarProperty Name="CLIE_NOMBRE" ColumnName="CLIE_NOMBRE" />
+          <ScalarProperty Name="CLIE_DIRECCION" ColumnName="CLIE_DIRECCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPANIA">
+      <EntityTypeMapping TypeName="AgenciaSegurosFalabellaModel.COMPANIA">
+        <MappingFragment StoreEntitySet="COMPANIA">
+          <ScalarProperty Name="COM_CONT" ColumnName="COM_CONT" />
+          <ScalarProperty Name="COM_NOMBRE" ColumnName="COM_NOMBRE" />
+          <ScalarProperty Name="COM_NIT" ColumnName="COM_NIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEDIDOS">
+      <EntityTypeMapping TypeName="AgenciaSegurosFalabellaModel.PEDIDOS">
+        <MappingFragment StoreEntitySet="PEDIDOS">
+          <ScalarProperty Name="PED_CONT" ColumnName="PED_CONT" />
+          <ScalarProperty Name="VEND_CONT" ColumnName="VEND_CONT" />
+          <ScalarProperty Name="CLIE_CONT" ColumnName="CLIE_CONT" />
+          <ScalarProperty Name="PRO_CONT" ColumnName="PRO_CONT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTOS">
+      <EntityTypeMapping TypeName="AgenciaSegurosFalabellaModel.PRODUCTOS">
+        <MappingFragment StoreEntitySet="PRODUCTOS">
+          <ScalarProperty Name="PRO_CONT" ColumnName="PRO_CONT" />
+          <ScalarProperty Name="COM_CONT" ColumnName="COM_CONT" />
+          <ScalarProperty Name="PRO_PRIMA" ColumnName="PRO_PRIMA" />
+          <ScalarProperty Name="PRO_COBERTURA" ColumnName="PRO_COBERTURA" />
+          <ScalarProperty Name="PRO_ASISTENCIA" ColumnName="PRO_ASISTENCIA" />
+          <ScalarProperty Name="PRO_NOMBRE" ColumnName="PRO_NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VENDEDOR">
+      <EntityTypeMapping TypeName="AgenciaSegurosFalabellaModel.VENDEDOR">
+        <MappingFragment StoreEntitySet="VENDEDOR">
+          <ScalarProperty Name="VEND_CONT" ColumnName="VEND_CONT" />
+          <ScalarProperty Name="VEND_NOMBRE" ColumnName="VEND_NOMBRE" />
+          <ScalarProperty Name="VEND_CODIGO" ColumnName="VEND_CODIGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

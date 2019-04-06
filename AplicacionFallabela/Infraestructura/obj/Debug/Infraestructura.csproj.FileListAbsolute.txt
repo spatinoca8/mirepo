@@ -1,0 +1,6 @@
+C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Infraestructura\bin\Debug\Infraestructura.dll
+C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Infraestructura\bin\Debug\Infraestructura.pdb
+C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Infraestructura\bin\Debug\EntityFramework.dll
+C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Infraestructura\bin\Debug\EntityFramework.xml
+C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Infraestructura\obj\Debug\Infraestructura.dll
+C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Infraestructura\obj\Debug\Infraestructura.pdb

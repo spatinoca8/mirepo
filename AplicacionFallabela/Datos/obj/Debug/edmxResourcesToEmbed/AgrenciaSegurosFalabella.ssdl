@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AgenciaSegurosFalabellaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="CLIE_CONT" />
+    </Key>
+    <Property Name="CLIE_CONT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VEND_CONT" Type="int" />
+    <Property Name="CLIE_NOMBRE" Type="varchar" MaxLength="250" />
+    <Property Name="CLIE_DIRECCION" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="COMPANIA">
+    <Key>
+      <PropertyRef Name="COM_CONT" />
+    </Key>
+    <Property Name="COM_CONT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COM_NOMBRE" Type="varchar" MaxLength="250" />
+    <Property Name="COM_NIT" Type="int" />
+  </EntityType>
+  <EntityType Name="PEDIDOS">
+    <Key>
+      <PropertyRef Name="PED_CONT" />
+    </Key>
+    <Property Name="PED_CONT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VEND_CONT" Type="int" />
+    <Property Name="CLIE_CONT" Type="int" />
+    <Property Name="PRO_CONT" Type="int" />
+  </EntityType>
+  <EntityType Name="PRODUCTOS">
+    <Key>
+      <PropertyRef Name="PRO_CONT" />
+    </Key>
+    <Property Name="PRO_CONT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COM_CONT" Type="int" />
+    <Property Name="PRO_PRIMA" Type="varchar" MaxLength="250" />
+    <Property Name="PRO_COBERTURA" Type="varchar" MaxLength="250" />
+    <Property Name="PRO_ASISTENCIA" Type="varchar" MaxLength="250" />
+    <Property Name="PRO_NOMBRE" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="VENDEDOR">
+    <Key>
+      <PropertyRef Name="VEND_CONT" />
+    </Key>
+    <Property Name="VEND_CONT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VEND_NOMBRE" Type="varchar" MaxLength="250" />
+    <Property Name="VEND_CODIGO" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK__CLIENTE__VEND_CO__173876EA">
+    <End Role="VENDEDOR" Type="Self.VENDEDOR" Multiplicity="0..1" />
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VENDEDOR">
+        <PropertyRef Name="VEND_CONT" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="VEND_CONT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PEDIDOS__CLIE_CO__1B0907CE">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+    <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIE_CONT" />
+      </Principal>
+      <Dependent Role="PEDIDOS">
+        <PropertyRef Name="CLIE_CONT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PEDIDOS__PRO_CON__1BFD2C07">
+    <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="0..1" />
+    <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTOS">
+        <PropertyRef Name="PRO_CONT" />
+      </Principal>
+      <Dependent Role="PEDIDOS">
+        <PropertyRef Name="PRO_CONT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PEDIDOS__VEND_CO__1A14E395">
+    <End Role="VENDEDOR" Type="Self.VENDEDOR" Multiplicity="0..1" />
+    <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VENDEDOR">
+        <PropertyRef Name="VEND_CONT" />
+      </Principal>
+      <Dependent Role="PEDIDOS">
+        <PropertyRef Name="VEND_CONT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCTOS__COM_C__1273C1CD">
+    <End Role="COMPANIA" Type="Self.COMPANIA" Multiplicity="0..1" />
+    <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPANIA">
+        <PropertyRef Name="COM_CONT" />
+      </Principal>
+      <Dependent Role="PRODUCTOS">
+        <PropertyRef Name="COM_CONT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AgenciaSegurosFalabellaModelStoreContainer">
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COMPANIA" EntityType="Self.COMPANIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PEDIDOS" EntityType="Self.PEDIDOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTOS" EntityType="Self.PRODUCTOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VENDEDOR" EntityType="Self.VENDEDOR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CLIENTE__VEND_CO__173876EA" Association="Self.FK__CLIENTE__VEND_CO__173876EA">
+      <End Role="VENDEDOR" EntitySet="VENDEDOR" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PEDIDOS__CLIE_CO__1B0907CE" Association="Self.FK__PEDIDOS__CLIE_CO__1B0907CE">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PEDIDOS__PRO_CON__1BFD2C07" Association="Self.FK__PEDIDOS__PRO_CON__1BFD2C07">
+      <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+      <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PEDIDOS__VEND_CO__1A14E395" Association="Self.FK__PEDIDOS__VEND_CO__1A14E395">
+      <End Role="VENDEDOR" EntitySet="VENDEDOR" />
+      <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCTOS__COM_C__1273C1CD" Association="Self.FK__PRODUCTOS__COM_C__1273C1CD">
+      <End Role="COMPANIA" EntitySet="COMPANIA" />
+      <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

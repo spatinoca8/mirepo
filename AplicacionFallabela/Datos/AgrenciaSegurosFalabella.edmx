@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AgenciaSegurosFalabellaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="CLIE_CONT" />
+          </Key>
+          <Property Name="CLIE_CONT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VEND_CONT" Type="int" />
+          <Property Name="CLIE_NOMBRE" Type="varchar" MaxLength="250" />
+          <Property Name="CLIE_DIRECCION" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="COMPANIA">
+          <Key>
+            <PropertyRef Name="COM_CONT" />
+          </Key>
+          <Property Name="COM_CONT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COM_NOMBRE" Type="varchar" MaxLength="250" />
+          <Property Name="COM_NIT" Type="int" />
+        </EntityType>
+        <EntityType Name="PEDIDOS">
+          <Key>
+            <PropertyRef Name="PED_CONT" />
+          </Key>
+          <Property Name="PED_CONT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VEND_CONT" Type="int" />
+          <Property Name="CLIE_CONT" Type="int" />
+          <Property Name="PRO_CONT" Type="int" />
+        </EntityType>
+        <EntityType Name="PRODUCTOS">
+          <Key>
+            <PropertyRef Name="PRO_CONT" />
+          </Key>
+          <Property Name="PRO_CONT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COM_CONT" Type="int" />
+          <Property Name="PRO_PRIMA" Type="varchar" MaxLength="250" />
+          <Property Name="PRO_COBERTURA" Type="varchar" MaxLength="250" />
+          <Property Name="PRO_ASISTENCIA" Type="varchar" MaxLength="250" />
+          <Property Name="PRO_NOMBRE" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="VENDEDOR">
+          <Key>
+            <PropertyRef Name="VEND_CONT" />
+          </Key>
+          <Property Name="VEND_CONT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VEND_NOMBRE" Type="varchar" MaxLength="250" />
+          <Property Name="VEND_CODIGO" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK__CLIENTE__VEND_CO__173876EA">
+          <End Role="VENDEDOR" Type="Self.VENDEDOR" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDEDOR">
+              <PropertyRef Name="VEND_CONT" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="VEND_CONT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PEDIDOS__CLIE_CO__1B0907CE">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="CLIE_CONT" />
+            </Principal>
+            <Dependent Role="PEDIDOS">
+              <PropertyRef Name="CLIE_CONT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PEDIDOS__PRO_CON__1BFD2C07">
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="0..1" />
+          <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTOS">
+              <PropertyRef Name="PRO_CONT" />
+            </Principal>
+            <Dependent Role="PEDIDOS">
+              <PropertyRef Name="PRO_CONT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PEDIDOS__VEND_CO__1A14E395">
+          <End Role="VENDEDOR" Type="Self.VENDEDOR" Multiplicity="0..1" />
+          <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDEDOR">
+              <PropertyRef Name="VEND_CONT" />
+            </Principal>
+            <Dependent Role="PEDIDOS">
+              <PropertyRef Name="VEND_CONT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTOS__COM_C__1273C1CD">
+          <End Role="COMPANIA" Type="Self.COMPANIA" Multiplicity="0..1" />
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPANIA">
+              <PropertyRef Name="COM_CONT" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="COM_CONT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AgenciaSegurosFalabellaModelStoreContainer">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPANIA" EntityType="Self.COMPANIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PEDIDOS" EntityType="Self.PEDIDOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTOS" EntityType="Self.PRODUCTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VENDEDOR" EntityType="Self.VENDEDOR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CLIENTE__VEND_CO__173876EA" Association="Self.FK__CLIENTE__VEND_CO__173876EA">
+            <End Role="VENDEDOR" EntitySet="VENDEDOR" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PEDIDOS__CLIE_CO__1B0907CE" Association="Self.FK__PEDIDOS__CLIE_CO__1B0907CE">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PEDIDOS__PRO_CON__1BFD2C07" Association="Self.FK__PEDIDOS__PRO_CON__1BFD2C07">
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+            <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PEDIDOS__VEND_CO__1A14E395" Association="Self.FK__PEDIDOS__VEND_CO__1A14E395">
+            <End Role="VENDEDOR" EntitySet="VENDEDOR" />
+            <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTOS__COM_C__1273C1CD" Association="Self.FK__PRODUCTOS__COM_C__1273C1CD">
+            <End Role="COMPANIA" EntitySet="COMPANIA" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AgenciaSegurosFalabellaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="CLIE_CONT" />
+          </Key>
+          <Property Name="CLIE_CONT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VEND_CONT" Type="Int32" />
+          <Property Name="CLIE_NOMBRE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CLIE_DIRECCION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VENDEDOR" Relationship="Self.FK__CLIENTE__VEND_CO__173876EA" FromRole="CLIENTE" ToRole="VENDEDOR" />
+          <NavigationProperty Name="PEDIDOS" Relationship="Self.FK__PEDIDOS__CLIE_CO__1B0907CE" FromRole="CLIENTE" ToRole="PEDIDOS" />
+        </EntityType>
+        <EntityType Name="COMPANIA">
+          <Key>
+            <PropertyRef Name="COM_CONT" />
+          </Key>
+          <Property Name="COM_CONT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COM_NOMBRE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="COM_NIT" Type="Int32" />
+          <NavigationProperty Name="PRODUCTOS" Relationship="Self.FK__PRODUCTOS__COM_C__1273C1CD" FromRole="COMPANIA" ToRole="PRODUCTOS" />
+        </EntityType>
+        <EntityType Name="PEDIDOS">
+          <Key>
+            <PropertyRef Name="PED_CONT" />
+          </Key>
+          <Property Name="PED_CONT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VEND_CONT" Type="Int32" />
+          <Property Name="CLIE_CONT" Type="Int32" />
+          <Property Name="PRO_CONT" Type="Int32" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__PEDIDOS__CLIE_CO__1B0907CE" FromRole="PEDIDOS" ToRole="CLIENTE" />
+          <NavigationProperty Name="PRODUCTOS" Relationship="Self.FK__PEDIDOS__PRO_CON__1BFD2C07" FromRole="PEDIDOS" ToRole="PRODUCTOS" />
+          <NavigationProperty Name="VENDEDOR" Relationship="Self.FK__PEDIDOS__VEND_CO__1A14E395" FromRole="PEDIDOS" ToRole="VENDEDOR" />
+        </EntityType>
+        <EntityType Name="PRODUCTOS">
+          <Key>
+            <PropertyRef Name="PRO_CONT" />
+          </Key>
+          <Property Name="PRO_CONT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COM_CONT" Type="Int32" />
+          <Property Name="PRO_PRIMA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_COBERTURA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_ASISTENCIA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="COMPANIA" Relationship="Self.FK__PRODUCTOS__COM_C__1273C1CD" FromRole="PRODUCTOS" ToRole="COMPANIA" />
+          <NavigationProperty Name="PEDIDOS" Relationship="Self.FK__PEDIDOS__PRO_CON__1BFD2C07" FromRole="PRODUCTOS" ToRole="PEDIDOS" />
+        </EntityType>
+        <EntityType Name="VENDEDOR">
+          <Key>
+            <PropertyRef Name="VEND_CONT" />
+          </Key>
+          <Property Name="VEND_CONT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VEND_NOMBRE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="VEND_CODIGO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__CLIENTE__VEND_CO__173876EA" FromRole="VENDEDOR" ToRole="CLIENTE" />
+          <NavigationProperty Name="PEDIDOS" Relationship="Self.FK__PEDIDOS__VEND_CO__1A14E395" FromRole="VENDEDOR" ToRole="PEDIDOS" />
+        </EntityType>
+        <Association Name="FK__CLIENTE__VEND_CO__173876EA">
+          <End Role="VENDEDOR" Type="Self.VENDEDOR" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDEDOR">
+              <PropertyRef Name="VEND_CONT" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="VEND_CONT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PEDIDOS__CLIE_CO__1B0907CE">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="CLIE_CONT" />
+            </Principal>
+            <Dependent Role="PEDIDOS">
+              <PropertyRef Name="CLIE_CONT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTOS__COM_C__1273C1CD">
+          <End Role="COMPANIA" Type="Self.COMPANIA" Multiplicity="0..1" />
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPANIA">
+              <PropertyRef Name="COM_CONT" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="COM_CONT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PEDIDOS__PRO_CON__1BFD2C07">
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="0..1" />
+          <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTOS">
+              <PropertyRef Name="PRO_CONT" />
+            </Principal>
+            <Dependent Role="PEDIDOS">
+              <PropertyRef Name="PRO_CONT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PEDIDOS__VEND_CO__1A14E395">
+          <End Role="VENDEDOR" Type="Self.VENDEDOR" Multiplicity="0..1" />
+          <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDEDOR">
+              <PropertyRef Name="VEND_CONT" />
+            </Principal>
+            <Dependent Role="PEDIDOS">
+              <PropertyRef Name="VEND_CONT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AgenciaSegurosFalabellaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+          <EntitySet Name="COMPANIA" EntityType="Self.COMPANIA" />
+          <EntitySet Name="PEDIDOS" EntityType="Self.PEDIDOS" />
+          <EntitySet Name="PRODUCTOS" EntityType="Self.PRODUCTOS" />
+          <EntitySet Name="VENDEDOR" EntityType="Self.VENDEDOR" />
+          <AssociationSet Name="FK__CLIENTE__VEND_CO__173876EA" Association="Self.FK__CLIENTE__VEND_CO__173876EA">
+            <End Role="VENDEDOR" EntitySet="VENDEDOR" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PEDIDOS__CLIE_CO__1B0907CE" Association="Self.FK__PEDIDOS__CLIE_CO__1B0907CE">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTOS__COM_C__1273C1CD" Association="Self.FK__PRODUCTOS__COM_C__1273C1CD">
+            <End Role="COMPANIA" EntitySet="COMPANIA" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PEDIDOS__PRO_CON__1BFD2C07" Association="Self.FK__PEDIDOS__PRO_CON__1BFD2C07">
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+            <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PEDIDOS__VEND_CO__1A14E395" Association="Self.FK__PEDIDOS__VEND_CO__1A14E395">
+            <End Role="VENDEDOR" EntitySet="VENDEDOR" />
+            <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AgenciaSegurosFalabellaModelStoreContainer" CdmEntityContainer="AgenciaSegurosFalabellaEntities">
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="AgenciaSegurosFalabellaModel.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="CLIE_CONT" ColumnName="CLIE_CONT" />
+                <ScalarProperty Name="VEND_CONT" ColumnName="VEND_CONT" />
+                <ScalarProperty Name="CLIE_NOMBRE" ColumnName="CLIE_NOMBRE" />
+                <ScalarProperty Name="CLIE_DIRECCION" ColumnName="CLIE_DIRECCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPANIA">
+            <EntityTypeMapping TypeName="AgenciaSegurosFalabellaModel.COMPANIA">
+              <MappingFragment StoreEntitySet="COMPANIA">
+                <ScalarProperty Name="COM_CONT" ColumnName="COM_CONT" />
+                <ScalarProperty Name="COM_NOMBRE" ColumnName="COM_NOMBRE" />
+                <ScalarProperty Name="COM_NIT" ColumnName="COM_NIT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PEDIDOS">
+            <EntityTypeMapping TypeName="AgenciaSegurosFalabellaModel.PEDIDOS">
+              <MappingFragment StoreEntitySet="PEDIDOS">
+                <ScalarProperty Name="PED_CONT" ColumnName="PED_CONT" />
+                <ScalarProperty Name="VEND_CONT" ColumnName="VEND_CONT" />
+                <ScalarProperty Name="CLIE_CONT" ColumnName="CLIE_CONT" />
+                <ScalarProperty Name="PRO_CONT" ColumnName="PRO_CONT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTOS">
+            <EntityTypeMapping TypeName="AgenciaSegurosFalabellaModel.PRODUCTOS">
+              <MappingFragment StoreEntitySet="PRODUCTOS">
+                <ScalarProperty Name="PRO_CONT" ColumnName="PRO_CONT" />
+                <ScalarProperty Name="COM_CONT" ColumnName="COM_CONT" />
+                <ScalarProperty Name="PRO_PRIMA" ColumnName="PRO_PRIMA" />
+                <ScalarProperty Name="PRO_COBERTURA" ColumnName="PRO_COBERTURA" />
+                <ScalarProperty Name="PRO_ASISTENCIA" ColumnName="PRO_ASISTENCIA" />
+                <ScalarProperty Name="PRO_NOMBRE" ColumnName="PRO_NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENDEDOR">
+            <EntityTypeMapping TypeName="AgenciaSegurosFalabellaModel.VENDEDOR">
+              <MappingFragment StoreEntitySet="VENDEDOR">
+                <ScalarProperty Name="VEND_CONT" ColumnName="VEND_CONT" />
+                <ScalarProperty Name="VEND_NOMBRE" ColumnName="VEND_NOMBRE" />
+                <ScalarProperty Name="VEND_CODIGO" ColumnName="VEND_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
