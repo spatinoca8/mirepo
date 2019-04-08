@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear compañia", "Create")
 </p>
 <table class="table">
     <tr>
@@ -25,7 +25,7 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td >
             @Html.DisplayFor(modelItem => item.COM_CONT)
         </td>
         <td>
@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.COM_NIT)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.COM_CONT }) |
+            @Html.ActionLink("Edit", "Edit", new {  id=item.COM_CONT }) 
             @Html.ActionLink("Details", "Details", new { id=item.COM_CONT }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.COM_CONT  })
         </td>

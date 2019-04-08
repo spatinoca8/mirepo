@@ -6,3 +6,11 @@ C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFall
 C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
 C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Datos\obj\Debug\Datos.dll
 C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Datos\obj\Debug\Datos.pdb
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Datos\bin\Debug\Datos.dll.config
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Datos\bin\Debug\Datos.dll
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Datos\bin\Debug\Datos.pdb
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Datos\bin\Debug\EntityFramework.dll
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Datos\bin\Debug\EntityFramework.xml
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Datos\obj\Debug\Datos.dll
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Datos\obj\Debug\Datos.pdb

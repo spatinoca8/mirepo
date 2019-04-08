@@ -53,7 +53,8 @@ namespace Front.Controllers
         // GET: Compania/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var objeto = servicioc.Traercompania(id);
+            return View(objeto);
         }
 
         // POST: Compania/Edit/5
@@ -75,8 +76,8 @@ namespace Front.Controllers
         // GET: Compania/Delete/5
         public ActionResult Delete(int id)
         {
-          
-            return View();
+            var objeto = servicioc.Traercompania(id);
+            return View(objeto);
         }
 
         // POST: Compania/Delete/5

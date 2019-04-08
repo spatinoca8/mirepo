@@ -16,8 +16,7 @@ namespace Servicio1
             try
             {
                 context.COMPANIA.Add(new Datos.COMPANIA()
-                {
-                    COM_CONT = compania.COM_CONT,
+                {                    
                     COM_NOMBRE = compania.COM_NOMBRE,
                     COM_NIT = compania.COM_NIT
                 });
@@ -66,6 +65,7 @@ namespace Servicio1
             {
                 var Compania = context.COMPANIA.Where(x => x.COM_CONT == Id).FirstOrDefault();
                 Compania.COM_NOMBRE = compania.COM_NOMBRE;
+                Compania.COM_NIT = compania.COM_NIT;
                 context.Entry(Compania).State = EntityState.Modified;
                 context.SaveChanges();
                 return true;
@@ -96,6 +96,8 @@ namespace Servicio1
             {
                 Datos.COMPANIA objeto = context.COMPANIA.Where(x => x.COM_CONT == id).Single();
                 context.COMPANIA.Remove(objeto);
+                context.SaveChanges();
+
                 return true;
             }
             catch (Exception)

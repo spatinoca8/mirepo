@@ -10,3 +10,15 @@ C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFall
 C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Servicio1\obj\Debug\Servicio1.csprojResolveAssemblyReference.cache
 C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Servicio1\obj\Debug\Servicio1.dll
 C:\Users\Sillvia y negritos\Documents\Visual Studio 2015\Projects\AplicacionFallabela\Servicio1\obj\Debug\Servicio1.pdb
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\bin\Debug\Servicio1.dll.config
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\bin\Debug\Servicio1.dll
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\bin\Debug\Servicio1.pdb
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\bin\Debug\Datos.dll
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\bin\Debug\EntityFramework.dll
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\bin\Debug\Infraestructura.dll
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\bin\Debug\Datos.pdb
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\bin\Debug\Infraestructura.pdb
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\bin\Debug\EntityFramework.xml
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\obj\Debug\Servicio1.csprojResolveAssemblyReference.cache
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\obj\Debug\Servicio1.dll
+C:\Users\Sillvia y negritos\Desktop\fallabella\AplicacionFallabela\Servicio1\obj\Debug\Servicio1.pdb

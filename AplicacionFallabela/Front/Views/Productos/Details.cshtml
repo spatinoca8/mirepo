@@ -1,0 +1,77 @@
+﻿@model Infraestructura.InfraestructuraProductos
+
+@{
+    ViewBag.Title = "Details";
+    var companias = ViewBag.Compania;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InfraestructuraProductos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PRO_CONT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRO_CONT)
+        </dd>
+
+        <dt>
+          <label>Compañia</label>
+        </dt>
+        <dd>
+            <select name="COM_CONT" class="form-control" contenteditable="false">
+                @foreach (var compa in companias)
+                {
+                    if (compa.COM_CONT == Model.COM_CONT)
+
+                    {
+                        <option value="@compa.COM_CONT"> @compa.COM_NOMBRE</option>
+                    }
+                }
+
+            </select>
+        </dd>
+
+        <dt>
+            <label>Prima</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRO_PRIMA)
+        </dd>
+
+        <dt>
+            <label>Cobertura</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRO_COBERTURA)
+        </dd>
+
+        <dt>
+            <label>Asistencia</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRO_ASISTENCIA)
+        </dd>
+
+        <dt>
+            <label>Producto</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRO_NOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PRO_CONT }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

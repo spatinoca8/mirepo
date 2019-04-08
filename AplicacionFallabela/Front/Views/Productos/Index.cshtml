@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Infraestructura.InfraestructuraProductos>
+
+@{
+    ViewBag.Title = "Index";
+    var companias = ViewBag.Compania;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PRO_CONT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COM_CONT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRO_PRIMA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRO_COBERTURA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRO_ASISTENCIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRO_NOMBRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRO_CONT)
+        </td>
+        <td>
+            <select name="COM_CONT" class="form-control" contenteditable="false">
+                @foreach (var compa in companias)
+                {
+                    if (compa.COM_CONT == item.COM_CONT)
+
+                    {
+                        <option value="@compa.COM_CONT" > @compa.COM_NOMBRE</option>
+                    }
+                }
+
+            </select>
+
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRO_PRIMA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRO_COBERTURA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRO_ASISTENCIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRO_NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PRO_CONT }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.PRO_CONT }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PRO_CONT })
+        </td>
+    </tr>
+}
+
+</table>
